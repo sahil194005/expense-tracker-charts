@@ -1,0 +1,9 @@
+.active {
+    color: black;
+    font-weight: 500;
+}
+
+body{
+    background-color: #F1F6F9;
+    /* background-color: red; */
+}

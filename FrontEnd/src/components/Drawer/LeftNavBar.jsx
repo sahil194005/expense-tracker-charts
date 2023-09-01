@@ -1,81 +1,47 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
-export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-    let anchor = "left";
+import React from 'react'
+import { LuLayoutDashboard } from 'react-icons/lu'
+import { FaRegMoneyBillAlt } from 'react-icons/fa'
+import { BsGraphUpArrow } from 'react-icons/bs'
+import { FiSettings } from 'react-icons/fi'
+import { FiHelpCircle } from 'react-icons/fi'
+import { NavLink } from 'react-router-dom'
+const LeftNavBar = () => {
   return (
-    <div>
-        <React.Fragment >
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-    </div>
-  );
+    <div className=' bg-white shadow-lg flex flex-col gap-6 md:gap-12 w-[25%] lg:w-[18%] min-h-[calc(100vh-120px)]  p-6 rounded-md'>
 
+
+      <NavLink className="text-base flex items-center gap-6" to="/dashboard">
+        <span><LuLayoutDashboard className='text-3xl' /> </span>
+        <span>Dashboard</span>
+      </NavLink>
+
+
+      <NavLink className="text-base flex items-center gap-6" to="/bills">
+        <span><FaRegMoneyBillAlt className='text-3xl' /> </span>
+        <span>Bills & Payments</span>
+      </NavLink>
+
+
+      <NavLink className="text-base flex items-center gap-6" to="/Expenses">
+        <span><BsGraphUpArrow className='text-3xl' /> </span>
+        <span>Expenses</span>
+      </NavLink>
+
+
+      <NavLink className="text-base flex items-center gap-6" to="/settings">
+        <span><FiSettings className='text-3xl' /> </span>
+        <span>Settings</span>
+      </NavLink>
+
+
+      <NavLink className="text-base flex items-center gap-6" to="/help">
+        <span><FiHelpCircle className='text-3xl' /> </span>
+        <span>Get Help</span>
+      </NavLink>
+
+
+    </div>
+  )
 }
+
+export default LeftNavBar

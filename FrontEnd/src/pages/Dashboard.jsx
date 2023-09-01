@@ -3,8 +3,8 @@ import LeftNavbar from '../components/Drawer/LeftNavBar'
 const Dashboard = () => {
   return (
     <div>
-      
-      <LeftNavbar/>
+      {/* <LeftNavbar/> */}
+    
     
     </div>
   )

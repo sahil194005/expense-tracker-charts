@@ -5,13 +5,15 @@ export const GlobalContextProvider = (props) => {
     const descriptionRef = useRef(null);
     const categoryRef = useRef(null);
     const [totalExpense, setTotalExpense] = useState(0);
-   
+    const [expenses, setExpenses] = useState([]);
     let initVal = {
         amountRef,
         descriptionRef,
         categoryRef,
         totalExpense,
         setTotalExpense,
+        expenses,
+        setExpenses
     }
 
     return (
