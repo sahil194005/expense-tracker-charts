@@ -13,7 +13,7 @@ const SingleExpense = ({ amount, category, description, userId, _id, date }) => 
     return (
         <div className='border-b-2 flex justify-between md:px-1 lg:px-3 py-6 items-center '>
             <div className='flex items-center gap:2 lg:gap-6'>
-                <div className='hidden lg:block text-2xl lg:text-3xl border p-1 bg-gray-100 rounded-md ring-2'>
+                <div className=' text-2xl lg:text-3xl border p-1 bg-gray-100 rounded-md ring-2'>
 
                     {category === "Foods & Drinks" ? (
                         <MdFastfood />
@@ -26,7 +26,7 @@ const SingleExpense = ({ amount, category, description, userId, _id, date }) => 
 
                 <div className='flex flex-col gap-1'>
                     <p className='font-bold text-sm text-gray-800'>{description.toUpperCase()}</p>
-                    <p className='hidden  lg:block text-sm text-gray-400'> {tempdate}, {month} {year} {day}</p>
+                    <p className=' text-sm text-gray-400'> {tempdate}, {month} {year} {day}</p>
                 </div>
             </div>
             <div className='flex gap-2'>

@@ -1,9 +1,10 @@
-.active {
-    color: black;
-    font-weight: 500;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body{
-    background-color: #F1F6F9;
-    /* background-color: red; */
+
+.active{
+    color:black;
+    font-weight: 600;
+    
 }
