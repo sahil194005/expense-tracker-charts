@@ -1,13 +1,42 @@
-import React from 'react'
-import LeftNavbar from '../components/Drawer/LeftNavBar'
+import React, { useEffect,useContext } from 'react'
+import TotalExpenseCard from '../components/TotalExpenseCard'
+import { GlobalContext } from '../Context/gobalContext'
+
 const Dashboard = () => {
+  const { expenses } = useContext(GlobalContext)
+  let FoodExpense = 0;
+  let EntertainmentExpense = 0;
+  let BillsExpense = 0;
+  expenses.forEach((expense) => {
+    if (expense.category === "Entertainment") {
+      EntertainmentExpense += expense.amount;
+    }
+    else if (expense.category === "Bills & Payments") {
+      BillsExpense += expense.amount;
+    }
+    else {
+      FoodExpense += expense.amount;
+    }
+  })
+  
   return (
-    <div>
-      {/* <LeftNavbar/> */}
-    
+    <div className=' flex max-h-[200px]'>
+      
+     
     
     </div>
   )
 }
 
 export default Dashboard
+
+
+{/* <TotalExpenseCard category={"Entertainment"}
+      totalAmount={EntertainmentExpense}
+      />
+      <TotalExpenseCard category={"Bills & Payments"}
+        totalAmount={BillsExpense}
+      />
+      <TotalExpenseCard category={"Food & Drinks"}
+        totalAmount={FoodExpense}
+      /> */}

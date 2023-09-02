@@ -22,9 +22,9 @@ const LeftNavBar = () => {
       </NavLink>
 
 
-      <NavLink className="text-base flex items-center gap-6" to="/Expenses">
+      <NavLink className="text-base flex items-center gap-6" to="/addExpense">
         <span><BsGraphUpArrow className='text-3xl' /> </span>
-        <span>Expenses</span>
+        <span>Add Expense</span>
       </NavLink>
 
 

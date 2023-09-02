@@ -5,7 +5,7 @@ import Dashboard from './pages/Dashboard'
 import Header from "./components/Header/Header";
 import LeftNavBar from "./components/Drawer/LeftNavBar";
 import './App.css'
-import Bills from "./pages/Bills";
+import AddExpense from "./pages/AddExpense";
 import THistory from "./components/TranHistory/THistory";
 function App() {
   return (
@@ -14,13 +14,13 @@ function App() {
       <Router>
         <Header />
         <main className=" w-full  min-h-[calc(100vh-70px)] py-[20px] text-gray-600 flex justify-between gap-7 ">
-        <LeftNavBar/>
+        {/* <LeftNavBar/> */}
           <Routes>
             <Route path="/" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/bills" element={<Bills/>} />
+            <Route path="/addExpense" element={<AddExpense/>} />
           </Routes>
-          <THistory/>
+          {/* <THistory/> */}
         </main>
       </Router>
     </>

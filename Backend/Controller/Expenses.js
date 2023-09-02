@@ -1,7 +1,9 @@
 const ExpenseSchema = require("../Models/Expenses");
 const CsvParser = require("json2csv").Parser;
+
 const addExpense = async (req, res) => {
 	try {
+		console.log(req.body);
 		const response = await ExpenseSchema.create({ ...req.body, userId: req.User._id });
 		res.status(201).json({ msg: "expense Added", success: true });
 	} catch (error) {

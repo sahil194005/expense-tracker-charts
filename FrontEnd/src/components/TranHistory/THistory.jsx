@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useContext } from 'react'
-// import SingleExpense from '../SingleExpense'
+import SingleExpense from '../SingleExpense'
 import { BsCalendar2Event } from 'react-icons/bs'
 import axios from 'axios'
 import { GlobalContext } from '../../Context/gobalContext'
@@ -23,7 +23,7 @@ const THistory = () => {
         getFromDB()
     }, []);
 
-   
+
 
     const downloadCSV = async (e) => {
         e.preventDefault();
@@ -43,19 +43,25 @@ const THistory = () => {
         }
 
     }
-console.log(
-    //   const ExpensesArr = Expenses.map((expense) => {
-    //     return <SingleExpense key={expense._id} amount={expense.amount} description={expense.description} userId={expense.userId} _id={expense._id} setExpenses={setExpenses} category={expense.category} />
-    //   })
+
+
+    const ExpensesArr = expenses.map((expense) => {
+        return <SingleExpense key={expense._id} amount={expense.amount} description={expense.description} userId={expense.userId} _id={expense._id}  category={expense.category} date={expense.date} />
+    })
 
     return (
-        <div className=' bg-white shadow-lg flex flex-col gap-6 md:gap-12 w-[25%] min-h-[calc(100vh-120px)]  py-6 rounded-md text-base'>
+        <div className=' bg-white shadow-lg flex flex-col   w-[25%] min-h-[calc(100vh-120px)]  py-6 rounded-md text-base'>
             <div className='flex justify-center items-center gap-5 pb-6 px-2 lg:px-6 border-b-2'>
                 <span className='text-3xl'>
                     <BsCalendar2Event />
                 </span>
                 <p className='text-center '>Your Transaction History</p>
             </div>
+            <div>
+                {ExpensesArr}
+            </div>
+
+
 
         </div>
     )
