@@ -17,13 +17,13 @@ const LeftNavBar = () => {
             </NavLink>
 
 
-            <NavLink className="lg:hidden text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/transaction-history">
+            <NavLink className=" text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/transaction-history">
                <span><FaRegMoneyBillAlt className='text-3xl' /> </span>
                <span>Transaction History</span>
             </NavLink>
 
 
-            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300" to="/addExpense">
+            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300" to="/add-expense">
                <span><BsGraphUpArrow className='text-3xl' /> </span>
                <span>Add Expense</span>
             </NavLink>
@@ -40,6 +40,10 @@ const LeftNavBar = () => {
                <span>Get Help</span>
             </NavLink>
 
+            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/blog">
+               <span><FiHelpCircle className='text-3xl' /> </span>
+               <span>Read Our Blog</span>
+            </NavLink>
 
          </div>
          <div className='text-xs text-center'>

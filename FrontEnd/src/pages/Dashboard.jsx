@@ -1,4 +1,4 @@
-import React, { useEffect,useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import TotalExpenseCard from '../components/TotalExpenseCard'
 import { GlobalContext } from '../Context/gobalContext'
 
@@ -18,25 +18,22 @@ const Dashboard = () => {
       FoodExpense += expense.amount;
     }
   })
-  
+
   return (
-    <div className=' flex max-h-[200px]'>
-      
-     
-    
-    </div>
-  )
-}
-
-export default Dashboard
-
-
-{/* <TotalExpenseCard category={"Entertainment"}
-      totalAmount={EntertainmentExpense}
+    <div className=' flex max-h-[400px] gap-4 justify-evenly flex-wrap min-h-[300px] w-full '>
+      <TotalExpenseCard category={"Entertainment"}
+        totalAmount={EntertainmentExpense}
       />
       <TotalExpenseCard category={"Bills & Payments"}
         totalAmount={BillsExpense}
       />
       <TotalExpenseCard category={"Food & Drinks"}
         totalAmount={FoodExpense}
-      /> */}
+      />
+
+    </div>
+  )
+}
+
+export default Dashboard
+

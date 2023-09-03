@@ -39,6 +39,11 @@ const LinksArr = [
     label: "Read Our Blog",
     link: "/blog",
     icon: <FiHelpCircle />
+  },
+  {
+    label: "Get Help",
+    link: "/help",
+    icon: <FiHelpCircle />
   }
 
 ]
@@ -69,7 +74,7 @@ const Header = () => {
 
 
   return (
-    <nav className=' flex   w-full items-center  justify-between  px-5 py-4 text-xl  text-gray-600 bg-white shadow-md' >
+    <nav className=' fixed z-30 flex h-[72px]   w-full items-center  justify-between  px-5 py-4 text-xl  text-gray-600 bg-white shadow-md' >
 
       <div className='flex gap-2  '>
         <img src={ExpenseLogo} alt="expenseLogo" className=' h-9 max-h-[40px] max-w-[40px]' />
@@ -78,7 +83,7 @@ const Header = () => {
 
 
       {/* Mobile SideBar */}
-      {isOpen && <div ref={navDrawerRef} className='flex flex-col border gap-6 p-6 absolute right-0 top-[70px] bg-white w-[70%] sm:w-[50%] h-[calc(100vh-70px)] z-30 duration-300'>
+      {isOpen && <div ref={navDrawerRef} className='flex  flex-col border gap-6 p-6 absolute right-0 top-[72px] bg-white w-[70%] sm:w-[50%] h-[calc(100vh-70px)] z-30 duration-300'>
         {LinksArr.map((item) => {
           return <NavLink key={item.link} to={item.link}   onClick={() => setIsOpen(false)} className="text-base flex items-center gap-6 outline-none  hover:ring-2 p-1 rounded-md ring-gray-300 ">
             <span>{item.icon}</span>

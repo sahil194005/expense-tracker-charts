@@ -43,25 +43,24 @@ const THistory = () => {
 
     }
 
-
+   
     const ExpensesArr = expenses.map((expense) => {
         return <SingleExpense key={expense._id} amount={expense.amount} description={expense.description} userId={expense.userId} _id={expense._id} category={expense.category} date={expense.date} />
     })
     return (
-        <div className='hidden  px-2 lg:flex bg-white shadow-lg  flex-col   w-[25%] max-h-[100%]  py-6 rounded-md text-base'>
-            <div className='flex justify-center items-center gap-5 pb-6 px-2 lg:px-6 border-b-2'>
-                <span className='text-3xl'>
-                    <BsCalendar2Event />
-                </span>
-                <p className='text-center '>Your Transaction History</p>
+            <div className='  px-2  bg-white shadow-lg flex flex-col w-full max-h-[100%]  py-6 rounded-md text-base'>
+                <div className='flex justify-center items-center gap-5 pb-6 px-2 lg:px-6 border-b-2'>
+                    <span className='text-3xl'>
+                        <BsCalendar2Event />
+                    </span>
+                    <p className='text-center '>Your Transaction History</p>
+                </div>
+                <div>
+                    {ExpensesArr}
+                </div>
             </div>
-            <div>
-                {ExpensesArr}
-            </div>
 
-
-
-        </div>
+       
     )
 }
 

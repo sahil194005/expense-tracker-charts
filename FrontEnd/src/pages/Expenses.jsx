@@ -1,9 +1,9 @@
 import React from 'react'
 
-const expenses = () => {
+const Expenses = () => {
   return (
     <div>expenses</div>
   )
 }
 
-export default expenses
+export default Expenses
