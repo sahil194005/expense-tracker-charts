@@ -47,8 +47,6 @@ const LeftNavBar = () => {
          </div>
       </div>
 
-
-
    )
 }
 
