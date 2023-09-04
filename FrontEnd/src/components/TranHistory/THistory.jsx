@@ -6,24 +6,6 @@ import { GlobalContext } from '../../Context/gobalContext'
 const THistory = () => {
     const { setTotalExpense, totalExpense, expenses, setExpenses } = useContext(GlobalContext)
 
-    useEffect(() => {
-        const getFromDB = async () => {
-            try {
-                const token = JSON.parse(localStorage.getItem('token'));
-                const response = await axios.get('http://localhost:3006/expenses/getExpenses', { headers: { "Authorization": token } })
-                setExpenses(response.data.data);
-                let sum = 0;
-                response.data.data.forEach((item) => sum = sum + item.amount);
-                setTotalExpense(sum);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getFromDB()
-    }, []);
-
-
-
     const downloadCSV = async (e) => {
         e.preventDefault();
         try {
@@ -43,7 +25,7 @@ const THistory = () => {
 
     }
 
-   
+   console.log(expenses)
     const ExpensesArr = expenses.map((expense) => {
         return <SingleExpense key={expense._id} amount={expense.amount} description={expense.description} userId={expense.userId} _id={expense._id} category={expense.category} date={expense.date} />
     })

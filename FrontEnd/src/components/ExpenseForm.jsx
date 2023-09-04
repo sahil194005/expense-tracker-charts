@@ -29,12 +29,13 @@ const ExpenseForm = () => {
                 category: categoryRef.current.value,
                 date: currDate
             }
-            // console.log(value);
            
-            // amountRef.current.value = descriptionRef.current.value = categoryRef.current.value = "";
-            // const token = JSON.parse(localStorage.getItem('token'));
-            // const response = await axios.post('http://localhost:3006/expenses/addExpense', obj, { headers: { "Authorization": token } });
-            // setExpenses((state) => { return [...state, obj] })
+           
+            amountRef.current.value = descriptionRef.current.value = categoryRef.current.value = "";
+            const token = JSON.parse(localStorage.getItem('token'));
+            const response = await axios.post('http://localhost:3006/expenses/addExpense', obj, { headers: { "Authorization": token } });
+            
+            setExpenses((state) => { return [...state, response.data.data] })
 
 
         } catch (error) {
@@ -58,16 +59,16 @@ const ExpenseForm = () => {
                     <label className="block mb-2 text-sm text-gray-700">Description</label>
                     <input type="text" ref={descriptionRef} className="w-full px-4 py-2 border ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 text-center" required />
                 </div>
-                {/* <div className="mb-4">
+                <div className="mb-4">
                     <label className="block mb-2 text-sm text-gray-700">Category</label>
                     <select ref={categoryRef}  className="w-full px-4 py-2 border ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 text-center" required >
                         <option defaultValue>Foods & Drinks</option>
                         <option value="Bills & Payments">Bills & Payments</option>
                         <option value="Entertainment">Entertainment</option>
                     </select>
-                </div> */}
+                </div>
 
-                <Select   >
+                {/* <Select   >
                     <SelectTrigger className="w-full">
                         <SelectValue    placeholder="Category" />
                     </SelectTrigger>
@@ -76,7 +77,7 @@ const ExpenseForm = () => {
                         <SelectItem value="Bills & Payments">Bills & Payments</SelectItem>
                         <SelectItem value="Foods & Drinks">Foods & Drinks</SelectItem>
                     </SelectContent>
-                </Select>
+                </Select> */}
                 <div className='flex justify-center'>
                     <DatePicker date={currDateHandler} />
                 </div>
