@@ -4,7 +4,7 @@ import { ResponsiveLine } from '@nivo/line'
 const MyResponsiveLine = ({data}) => (
     <ResponsiveLine
         data={data}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 20, right: 20, bottom: 100, left: 50 }}
         xScale={{ type: 'point' }}
         yScale={{
             type: 'linear',
@@ -32,25 +32,30 @@ const MyResponsiveLine = ({data}) => (
             legendOffset: -40,
             legendPosition: 'middle'
         }}
+        colors={{ scheme: 'set2' }}
         pointSize={10}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}
-        pointBorderColor={{ from: 'serieColor' }}
+        pointBorderColor={{ from: 'serieColor', modifiers: [] }}
         pointLabelYOffset={-12}
+        enableArea={true}
+        areaBlendMode="darken"
+        areaBaselineValue={10}
+        areaOpacity={0.15}
         useMesh={true}
         legends={[
             {
-                anchor: 'bottom-right',
-                direction: 'column',
+                anchor: 'bottom',
+                direction: 'row',
                 justify: false,
-                translateX: 100,
-                translateY: 0,
-                itemsSpacing: 0,
+                translateX: 52,
+                translateY: 91,
+                itemsSpacing: 11,
                 itemDirection: 'left-to-right',
-                itemWidth: 80,
-                itemHeight: 20,
+                itemWidth: 130,
+                itemHeight: 64,
                 itemOpacity: 0.75,
-                symbolSize: 12,
+                symbolSize: 18,
                 symbolShape: 'circle',
                 symbolBorderColor: 'rgba(0, 0, 0, .5)',
                 effects: [
@@ -64,6 +69,7 @@ const MyResponsiveLine = ({data}) => (
                 ]
             }
         ]}
+        motionConfig="wobbly"
     />
 )
 

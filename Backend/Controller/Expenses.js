@@ -1,6 +1,8 @@
 const ExpenseSchema = require("../Models/Expenses");
 const CsvParser = require("json2csv").Parser;
 
+const {data} = require('../DataSet/dataSet')
+
 const addExpense = async (req, res) => {
 	try {
 		const response = await ExpenseSchema.create({
@@ -137,10 +139,35 @@ const lineGraphData = async (req, res) => {
 	}
 };
 
+
+const populateExpenses = async (req, res) => {
+	try {
+	  // Iterate over each data entry and insert it into the database
+	  for (const dataEntry of data) {
+		await ExpenseSchema.create({
+		  ...dataEntry,
+		  userId: req.User._id,
+		});
+	  }
+  
+	  res.status(201).json({
+		msg: 'Expenses added successfully',
+		success: true,
+	  });
+	} catch (error) {
+	  console.error(error);
+	  res.status(500).json({
+		msg: 'Could not add expenses',
+		success: false,
+	  });
+	}
+  };
+
 module.exports = {
 	addExpense,
 	getExpenses,
 	deleteExpense,
 	downloadCSV,
 	lineGraphData,
+	populateExpenses
 };
