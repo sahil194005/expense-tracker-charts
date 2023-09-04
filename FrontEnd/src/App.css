@@ -8,3 +8,12 @@
     font-weight: 600;
     
 }
+
+.backgroundCard{
+    background-size: cover;
+    -webkit-background-size:cover;
+    background-repeat: no-repeat;
+    filter: blur(2px);
+    ;
+    
+}
