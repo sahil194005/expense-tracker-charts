@@ -11,14 +11,14 @@ const Auth = () => {
         try {
             if (login) {
                 setSendingReq(true);
-                const response = await axios.post(`http://localhost:3006/users/login`, obj);
+                const response = await axios.post(`https://expensetracker-js97.onrender.com/users/login`, obj);
                 setSendingReq(false);
                 localStorage.setItem('token', JSON.stringify(response.data.token));
                 navigate('/dashboard');
             }
             else {
                 setSendingReq(true);
-                const response = await axios.post(`http://localhost:3006/users/signup`, obj);
+                const response = await axios.post(`https://expensetracker-js97.onrender.com/users/signup`, obj);
                 setSendingReq(false);
                 setLogin(true);
             }

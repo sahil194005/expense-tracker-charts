@@ -10,7 +10,7 @@ const THistory = () => {
         e.preventDefault();
         try {
             const token = JSON.parse(localStorage.getItem('token'));
-            let response = await axios.get('http://localhost:3006/expenses/downloadCSV', { headers: { "Authorization": token } });
+            let response = await axios.get('https://expensetracker-js97.onrender.com/expenses/downloadCSV', { headers: { "Authorization": token } });
             const blob = new Blob([response.data], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');

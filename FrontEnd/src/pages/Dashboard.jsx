@@ -14,7 +14,7 @@ const Dashboard = () => {
     (async () => {
       try {
         const token = JSON.parse(localStorage.getItem('token'));
-        const response = await axios.get('http://localhost:3006/expenses/lineGraphData', { headers: { "Authorization": token } })
+        const response = await axios.get('https://expensetracker-js97.onrender.com/expenses/lineGraphData', { headers: { "Authorization": token } })
         setLineGraphData(response.data.data);
 
       } catch (error) {

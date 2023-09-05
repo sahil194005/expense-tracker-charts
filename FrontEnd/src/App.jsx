@@ -15,7 +15,7 @@ function App() {
       const getFromDB = async () => {
           try {
               const token = JSON.parse(localStorage.getItem('token'));
-              const response = await axios.get('http://localhost:3006/expenses/getExpenses', { headers: { "Authorization": token } })
+              const response = await axios.get('https://expensetracker-js97.onrender.com/expenses/getExpenses', { headers: { "Authorization": token } })
               setExpenses(response.data.data);
               let sum = 0;
               response.data.data.forEach((item) => sum = sum + item.amount);

@@ -33,7 +33,7 @@ const ExpenseForm = () => {
 
             amountRef.current.value = descriptionRef.current.value = categoryRef.current.value = "";
             const token = JSON.parse(localStorage.getItem('token'));
-            const response = await axios.post('http://localhost:3006/expenses/addExpense', obj, { headers: { "Authorization": token } });
+            const response = await axios.post('https://expensetracker-js97.onrender.com/expenses/addExpense', obj, { headers: { "Authorization": token } });
 
             setExpenses((state) => { return [...state, response.data.data] })
 
