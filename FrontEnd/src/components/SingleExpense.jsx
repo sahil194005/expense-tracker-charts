@@ -3,7 +3,7 @@ import { MdFastfood } from 'react-icons/md'
 import { LiaMoneyBillWaveSolid } from 'react-icons/lia'
 import { TbMovie } from 'react-icons/tb'
 import Dropdown from './Dropdown';
-const SingleExpense = ({ amount, category, description, userId, _id, date }) => {
+const SingleExpense = ({ amount, category, description, userId, _id, date,expenseType }) => {
     const newdate = new Date(date);
 
     const options = { 
@@ -34,7 +34,7 @@ const SingleExpense = ({ amount, category, description, userId, _id, date }) => 
                 </div>
             </div>
             <div className='flex gap-2'>
-                <span className={`font-bold lg:text-xl ${amount >= 0 ? 'text-[#34a203]' : 'text-red-800'}`}>&#8377;{Math.abs(amount)}</span>
+                <span className={`font-bold lg:text-xl ${expenseType==="Debit"? 'text-[#34a203]' : 'text-red-800'}`}>&#8377;{Math.abs(amount)}</span>
                 <Dropdown />
             </div>
         </div>

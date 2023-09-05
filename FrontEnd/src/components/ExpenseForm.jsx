@@ -3,13 +3,6 @@ import React, { useState, useContext, useRef } from 'react'
 import { GlobalContext } from '../Context/gobalContext';
 import axios from 'axios';
 import DatePicker from './DatePicker';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "../components/ui/select"
 
 const ExpenseForm = () => {
     const [value, setValue] = React.useState('Entertainment');
@@ -17,6 +10,12 @@ const ExpenseForm = () => {
     const amountRef = useRef(null);
     const descriptionRef = useRef(null);
     const categoryRef = useRef(null);
+    const [type, setType] = useState('');
+    const onChangeHandler = (e) => {
+       
+        setType(e.target.value)
+    };
+
     let currDate = new Date();
 
     const formSubmitHandler = async (e) => {
@@ -27,14 +26,15 @@ const ExpenseForm = () => {
                 amount: amountRef.current.value,
                 description: descriptionRef.current.value,
                 category: categoryRef.current.value,
-                date: currDate
+                date: currDate,
+                expenseType:type
             }
-           
-           
+            
+
             amountRef.current.value = descriptionRef.current.value = categoryRef.current.value = "";
             const token = JSON.parse(localStorage.getItem('token'));
             const response = await axios.post('http://localhost:3006/expenses/addExpense', obj, { headers: { "Authorization": token } });
-            
+
             setExpenses((state) => { return [...state, response.data.data] })
 
 
@@ -61,23 +61,23 @@ const ExpenseForm = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block mb-2 text-sm text-gray-700">Category</label>
-                    <select ref={categoryRef}  className="w-full px-4 py-2 border ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 text-center" required >
+                    <select ref={categoryRef} className="w-full px-4 py-2 border ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600 text-center" required >
                         <option defaultValue>Foods & Drinks</option>
                         <option value="Bills & Payments">Bills & Payments</option>
                         <option value="Entertainment">Entertainment</option>
                     </select>
                 </div>
+                <div className="mb-4 flex  gap-4">
+                    <p className="block mb-2 text-sm text-gray-700">Expense Type :</p>
+                    <>
+                        <input onChange={onChangeHandler} type="radio" name="expenseType" value="Debit" />
+                        <label htmlFor="">Debit</label>
+                    
+                        <input onChange={onChangeHandler} type="radio" name="expenseType" value="Credit" />
+                        <label htmlFor="Credit">Credit</label>
+                    </>
+                </div>
 
-                {/* <Select   >
-                    <SelectTrigger className="w-full">
-                        <SelectValue    placeholder="Category" />
-                    </SelectTrigger>
-                    <SelectContent  >
-                        <SelectItem value="Entertainment">Entertainment</SelectItem>
-                        <SelectItem value="Bills & Payments">Bills & Payments</SelectItem>
-                        <SelectItem value="Foods & Drinks">Foods & Drinks</SelectItem>
-                    </SelectContent>
-                </Select> */}
                 <div className='flex justify-center'>
                     <DatePicker date={currDateHandler} />
                 </div>

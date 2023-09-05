@@ -102,10 +102,11 @@ function transformExpensesToChartData(expenses) {
 
 	// Loop through expenses and update monthly totals
 	expenses.forEach((expense) => {
-		const { category, amount, date } = expense;
+		const { category, amount, date,expenseType } = expense;
 		const month = new Date(date).getMonth(); // Get the month (0-11)
 
 		// Update the monthly total for the category
+		if(expenseType=="Credit")
 		monthlyTotals[category][month] += amount;
 	});
 
@@ -146,7 +147,8 @@ const populateExpenses = async (req, res) => {
 	  for (const dataEntry of data) {
 		await ExpenseSchema.create({
 		  ...dataEntry,
-		  userId: req.User._id,
+			userId: req.User._id,
+			expenseType: Math.random() < 0.5 ? "Debit" : "Credit",
 		});
 	  }
   

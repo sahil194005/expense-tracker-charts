@@ -17,7 +17,7 @@ const TotalExpenseCard = ({ category, totalAmount }) => {
 
     return (
         <div className='border  bg-white rounded-md flex flex-col justify-center px-6 
-        max-h-[170px] min-h-[100px] min-w-[200px] sm:min-h-[130px]  sm:min-w-[150px]   md:min-w-[200px] lg:min-h-[150px]
+        max-h-[170px] min-h-[120px] min-w-[240px] sm:min-h-[160px]  sm:min-w-[250px]   md:min-w-[200px] lg:min-h-[150px]
          '>
             <span className='flex items-center gap-2 text-gray-400 text-md'>
                 <div className=' h-[10px] w-[10px] rounded-full bg-red-600'></div>
