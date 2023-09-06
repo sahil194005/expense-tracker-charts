@@ -25,7 +25,7 @@ const THistory = () => {
 
     }
 
-    console.log(expenses)
+    
     const ExpensesArr = expenses.map((expense) => {
         return <SingleExpense key={expense._id} amount={expense.amount} description={expense.description} userId={expense.userId} _id={expense._id} category={expense.category} date={expense.date} expenseType={expense.expenseType} />
     })
@@ -41,8 +41,6 @@ const THistory = () => {
                 {ExpensesArr}
             </div>
         </div>
-
-
     )
 }
 

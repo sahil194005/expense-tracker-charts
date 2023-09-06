@@ -9,6 +9,25 @@ import MyResponsiveLine from '../components/Charts/LineGraph'
 import axios from 'axios'
 
 const Dashboard = () => {
+
+  const { setTotalExpense, totalExpense, expenses, setExpenses } = useContext(GlobalContext)
+
+  useEffect(() => {
+      const getFromDB = async () => {
+          try {
+              const token = JSON.parse(localStorage.getItem('token'));
+              const response = await axios.get('https://expensetracker-js97.onrender.com/expenses/getExpenses', { headers: { "Authorization": token } })
+              setExpenses(response.data.data);
+              let sum = 0;
+              response.data.data.forEach((item) => sum = sum + item.amount);
+              setTotalExpense(sum);
+          } catch (error) {
+              console.log(error);
+          }
+      }
+      getFromDB()
+  }, []);
+
   const [lineGraphData, setLineGraphData] = useState([]);
   useEffect(() => {
     (async () => {
@@ -25,7 +44,7 @@ const Dashboard = () => {
 
   }, [])
 
-  const { expenses } = useContext(GlobalContext)
+
   let FoodExpense = 0;
   let EntertainmentExpense = 0;
   let BillsExpense = 0;

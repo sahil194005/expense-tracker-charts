@@ -5,7 +5,9 @@ import { BsGraphUpArrow } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
 import { FiHelpCircle } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 const LeftNavBar = () => {
+  
    return (
       <div className=' hidden md:flex bg-white shadow-lg flex-col justify-between  pt-14  md:w-[25%] lg:w-[18%] min-h-[100%]  rounded-md p-4'>
 

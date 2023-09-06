@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BiEditAlt } from 'react-icons/bi'
 import { AiOutlineDelete } from 'react-icons/ai'
 
-const Dropdown = () => {
+const Dropdown = ({ deleteHandler}) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const menuOpenHandler = () => {
@@ -26,15 +26,10 @@ const Dropdown = () => {
         &#10247;
       </button>
       {isOpen && <div className=' absolute right-0 z-30   border shadow-xl flex flex-col  bg-white min-w-[150px] rounded-lg  '>
-        <button className='flex justify-between p-2  hover:ring-2 rounded-md '>
-          <span><BiEditAlt /></span>
+        <button onClick={() => { deleteHandler(); setIsOpen(!isOpen) }} className='flex justify-between p-2  hover:ring-2 rounded-md '>
+          <span><AiOutlineDelete /></span>
           <span>Delete</span>
         </button>
-        <button className='flex justify-between p-2  hover:ring-2 rounded-md '>
-          <span><AiOutlineDelete /></span>
-          <span>Edit</span>
-        </button>
-
       </div>}
     </div>
   )

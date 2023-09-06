@@ -5,11 +5,9 @@ import axios from 'axios';
 import DatePicker from './DatePicker';
 
 const ExpenseForm = () => {
-    const [value, setValue] = React.useState('Entertainment');
-    const { expenses, setExpenses } = useContext(GlobalContext)
-    const amountRef = useRef(null);
-    const descriptionRef = useRef(null);
-    const categoryRef = useRef(null);
+   
+    const {  setExpenses,amountRef,descriptionRef,categoryRef } = useContext(GlobalContext)
+  
     const [type, setType] = useState('');
     const onChangeHandler = (e) => {
        
@@ -71,10 +69,10 @@ const ExpenseForm = () => {
                     <p className="block mb-2 text-sm text-gray-700">Expense Type :</p>
                     <>
                         <input onChange={onChangeHandler} type="radio" name="expenseType" value="Debit" />
-                        <label htmlFor="">Debit</label>
+                        <label >Debit</label>
                     
                         <input onChange={onChangeHandler} type="radio" name="expenseType" value="Credit" />
-                        <label htmlFor="Credit">Credit</label>
+                        <label >Credit</label>
                     </>
                 </div>
 

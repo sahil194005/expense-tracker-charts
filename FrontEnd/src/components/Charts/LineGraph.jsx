@@ -4,7 +4,7 @@ import { ResponsiveLine } from '@nivo/line'
 const MyResponsiveLine = ({data}) => (
     <ResponsiveLine
         data={data}
-        margin={{ top: 20, right: 20, bottom: 100, left: 50 }}
+        margin={{ top: 20, right: 20, bottom: 100, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{
             type: 'linear',
@@ -20,7 +20,7 @@ const MyResponsiveLine = ({data}) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: 'Months',
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -28,8 +28,8 @@ const MyResponsiveLine = ({data}) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
-            legendOffset: -40,
+            legend: 'Total Expense',
+            legendOffset: -50,
             legendPosition: 'middle'
         }}
         colors={{ scheme: 'set2' }}
