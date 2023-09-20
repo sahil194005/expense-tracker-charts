@@ -3,6 +3,7 @@ require("dotenv").config();
 const bodyParser = require('body-parser')
 const UserRoute = require('./Routes/Users')
 const ExpensesRoute = require('./Routes/Expenses');
+const ProfileRoute = require('./Routes/profile');
 const connectDB = require("./DB/connect");
 const cors = require('cors');
 const app = Express(); 
@@ -14,6 +15,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/users', UserRoute)
 app.use('/expenses', ExpensesRoute);
+app.use('/profile', ProfileRoute);
+
 
 
 const PORT = process.env.PORT||3006

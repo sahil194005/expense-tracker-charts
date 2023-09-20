@@ -2,14 +2,17 @@
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', true)
 const ProfileSchema = new mongoose.Schema({
-    name: {
-        type: String,
-    },
-	image: {
-		type: String,
-    },
     userId: {
-        type: mongoose.Types.ObjectId
+        type:mongoose.Types.ObjectId
+    },
+    dob: {
+        type:Date,
+    },
+    panNo: {
+      type:Number  
+    },
+    phoneNumber: {
+      type:Number  
     }
 });
 

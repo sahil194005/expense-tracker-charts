@@ -93,13 +93,14 @@ const Login = async (req, res) => {
 
 const profileComplete = async (req, res) => {
 	try {
-		const isProfile = await ProfileSchema.findOne({ userId: req.User._id });
-		if (!isProfile) {
-			const response = await ProfileSchema.create({ ...req.body, userId: req.User._id });
-		} else {
-			const response = await ProfileSchema.findOneAndUpdate({ user_id: req.User._id }, req.body);
-		}
-		res.status(201).json({ msg: "profile completed", success: true });
+		// const isProfile = await ProfileSchema.findOne({ userId: req.User._id });
+		// if (!isProfile) {
+		// 	const response = await ProfileSchema.create({ ...req.body, userId: req.User._id });
+		// } else {
+		// 	const response = await ProfileSchema.findOneAndUpdate({ user_id: req.User._id }, req.body);
+		// }
+		const response = await ProfileSchema.create({ ...req.body, userId: req.User._id });
+		res.status(201).json({ msg: "profile completed", success: true ,data:response});
 	} catch (error) {
 		console.log(error);
 		res.status(404).json({ msg: "something went wrong", success: false });
@@ -108,7 +109,10 @@ const profileComplete = async (req, res) => {
 
 const getProfile = async (req, res) => {
 	try {
+		
+
 		let response = await ProfileSchema.findOne({ userId: req.User._id });
+		
 		res.status(201).json({ msg: "profile found", success: true, data: response });
 	} catch (error) {
 		console.log(error);

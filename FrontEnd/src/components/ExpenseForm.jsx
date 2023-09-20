@@ -50,7 +50,7 @@ const ExpenseForm = () => {
             <h1 className="text-3xl sm:text-5xl font-medium text-center text-gray-600 mt-8 mb-6">Expense Form</h1>
             <form onSubmit={formSubmitHandler} className=' min-h-[600px] flex flex-col  justify-evenly '>
                 <div className="mb-4 w-full">
-                    <label className="block mb-2 text-bse text-gray-700">Expense Amount</label>
+                    <label className="block mb-2 text-bse text-gray-700">DOB</label>
                     <input ref={amountRef} type="number" className="w-full px-4 py-2 border  rounded-lg ring-1 focus:outline-none focus:ring-2  text-center focus:ring-gray-600" required />
                 </div>
                 <div className="mb-4 w-full">
