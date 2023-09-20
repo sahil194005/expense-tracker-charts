@@ -13,36 +13,36 @@ const LeftNavBar = () => {
 
          <div className=' flex flex-col gap-12'>
 
-            <NavLink className="text-base flex items-center gap-6 outline-none  hover:ring-2 p-1 rounded-md ring-gray-300 " to="/dashboard">
+            <NavLink className="text-base flex items-center gap-6 outline-none  hover:ring-2 p-1 rounded-md ring-gray-300 " to="/dashboard/">
                <span><LuLayoutDashboard className='text-3xl' /> </span>
                <span>Dashboard</span>
             </NavLink>
 
 
-            <NavLink className=" text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/transaction-history">
+            <NavLink className=" text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/transaction-history/">
                <span><FaRegMoneyBillAlt className='text-3xl' /> </span>
                <span>Transaction History</span>
             </NavLink>
 
 
-            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300" to="/add-expense">
+            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300" to="/add-expense/">
                <span><BsGraphUpArrow className='text-3xl' /> </span>
                <span>Add Expense</span>
             </NavLink>
 
 
-            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/settings">
+            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/settings/">
                <span><FiSettings className='text-3xl' /> </span>
                <span>Settings</span>
             </NavLink>
 
 
-            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/help">
+            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/help/">
                <span><FiHelpCircle className='text-3xl' /> </span>
                <span>Get Help</span>
             </NavLink>
 
-            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/blog">
+            <NavLink className="text-base flex items-center gap-6 outline-none hover:ring-2 p-1 rounded-md ring-gray-300 " to="/blog/">
                <span><FiHelpCircle className='text-3xl' /> </span>
                <span>Read Our Blog</span>
             </NavLink>

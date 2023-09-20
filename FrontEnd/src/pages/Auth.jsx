@@ -14,7 +14,7 @@ const Auth = () => {
                 const response = await axios.post(`https://expensetracker-js97.onrender.com/users/login`, obj);
                 setSendingReq(false);
                 localStorage.setItem('token', JSON.stringify(response.data.token));
-                navigate('/dashboard');
+                navigate('/dashboard/');
             }
             else {
                 setSendingReq(true);

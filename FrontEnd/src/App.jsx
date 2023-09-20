@@ -20,12 +20,12 @@ function App() {
             <LeftNavBar />
             <Routes>
               <Route path="/" element={<Auth />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/add-expense" element={<AddExpense />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/help" element={<Help />} />
-              <Route path="/transaction-history" element={<History />} />
-              <Route path="/settings" element={<Setting />} />
+              <Route path="/dashboard/" element={<Dashboard />} />
+              <Route path="/add-expense/" element={<AddExpense />} />
+              <Route path="/blog/" element={<Blog />} />
+              <Route path="/help/" element={<Help />} />
+              <Route path="/transaction-history/" element={<History />} />
+              <Route path="/settings/" element={<Setting />} />
             </Routes>
 
           </main>
