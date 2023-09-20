@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 const Setting = () => {
   const panRef = useRef()
-  const dobRef = useRef()
+  const dobRef = useRef() 
   const phoneNumberRef = useRef();
   const [obj, setObj] = useState({
     numb: null,
